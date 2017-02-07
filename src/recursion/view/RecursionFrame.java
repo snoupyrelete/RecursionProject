@@ -9,7 +9,6 @@ import recursion.controller.RecursionController;
 public class RecursionFrame extends JFrame
 {
 	private RecursionController baseController;
-	
 	private RecursionPanel recursionPanel;
 	
 	
@@ -17,7 +16,7 @@ public class RecursionFrame extends JFrame
 	{
 		super();
 		this.baseController = baseController;
-		recursionPanel = new RecursionPanel(baseController);
+		this.recursionPanel = new RecursionPanel(baseController);
 		setupFrame();
 	}
 	

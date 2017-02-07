@@ -1,5 +1,8 @@
 package recursion.view;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
 import recursion.controller.RecursionController;
 
@@ -11,6 +14,7 @@ public class RecursionPanel extends JPanel
 	private JButton fibButton;
 	private JButton factButton;
 	private SpringLayout baseLayout;
+	private RecursionController baseController;
 	
 	
 	public RecursionPanel(RecursionController baseController)
@@ -21,6 +25,7 @@ public class RecursionPanel extends JPanel
 		this.resultsArea = new JTextArea("Results");
 		this.fibButton = new JButton("FIB");
 		this.factButton = new JButton("FACT");
+		this.baseController = baseController;
 		
 		setupPanel();
 		setupLayout();
@@ -42,15 +47,32 @@ public class RecursionPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.SOUTH, resultsArea, -21, SpringLayout.NORTH, factButton);
 		baseLayout.putConstraint(SpringLayout.NORTH, fibButton, 0, SpringLayout.NORTH, factButton);
 		baseLayout.putConstraint(SpringLayout.WEST, fibButton, 6, SpringLayout.EAST, factButton);
-		baseLayout.putConstraint(SpringLayout.WEST, factButton, 0, SpringLayout.WEST, inputField);
-		baseLayout.putConstraint(SpringLayout.SOUTH, inputField, -26, SpringLayout.NORTH, resultsArea);
-		baseLayout.putConstraint(SpringLayout.WEST, resultsArea, 0, SpringLayout.WEST, inputField);
 		baseLayout.putConstraint(SpringLayout.WEST, inputField, 31, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.WEST, factButton, 31, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.EAST, inputField, 0, SpringLayout.EAST, fibButton);
+		baseLayout.putConstraint(SpringLayout.SOUTH, inputField, -26, SpringLayout.NORTH, resultsArea);
+		baseLayout.putConstraint(SpringLayout.WEST, resultsArea, 31, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.EAST, resultsArea, 0, SpringLayout.EAST, inputField);
 	}
 	
 	
 	private void setupListeners()
 	{
+		factButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				resultsArea.setText(baseController.transferFactorial(inputField.getText()));
+			}
+		});
+		
+		fibButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				resultsArea.setText("");
+			}
+		});
 		
 	}
 }
