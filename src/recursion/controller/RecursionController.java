@@ -33,6 +33,20 @@ public class RecursionController
 		return factorialResponse;
 	}
 	
+	public String transferFibonacci(String value)
+	{
+		String fibonacciResponse = "The fibonacci value of " + value + " is: ";
+		mathTimer.startTimer();
+		if(isValid(value))
+		{
+			fibonacciResponse += recursionTool.calculateFibonacci(Integer.parseInt(value));
+		}
+		mathTimer.stopTimer();
+		fibonacciResponse += "\n" + mathTimer.toString();
+		mathTimer.resetTimer();
+		return fibonacciResponse;
+	}
+	
 	private boolean isValid(String current)
 	{
 		try
