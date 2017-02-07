@@ -1,5 +1,6 @@
 package recursion.view;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -39,6 +40,9 @@ public class RecursionPanel extends JPanel
 		this.add(resultsArea);
 		this.add(factButton);
 		this.add(fibButton);
+		resultsArea.setWrapStyleWord(true);
+		resultsArea.setLineWrap(true);
+		this.setBackground(Color.GREEN);
 	}
 	
 	private void setupLayout()

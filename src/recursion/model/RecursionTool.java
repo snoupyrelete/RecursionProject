@@ -8,7 +8,7 @@ public class RecursionTool
 	 * @param currentNumber the number to calculate the factorial of
 	 * @return the result of the factorial
 	 */
-	public int calculateFactorial(int currentNumber)
+	public double calculateFactorial(double currentNumber)
 	{
 		if(currentNumber == 0 || currentNumber == 1)
 		{
@@ -19,6 +19,7 @@ public class RecursionTool
 			return calculateFactorial(currentNumber - 1) * currentNumber;
 		}
 	}
+	
 	
 	
 }
