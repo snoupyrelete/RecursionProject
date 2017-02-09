@@ -25,7 +25,7 @@ public class RecursionController
 		mathTimer.startTimer();
 		if(isValid(value))
 		{
-			factorialResponse += recursionTool.calculateFactorial(Integer.parseInt(value));
+			factorialResponse += recursionTool.calcFactIter(Integer.parseInt(value));
 		}
 		mathTimer.stopTimer();
 		factorialResponse += "\n" + mathTimer.toString();
@@ -39,7 +39,7 @@ public class RecursionController
 		mathTimer.startTimer();
 		if(isValid(value))
 		{
-			fibonacciResponse += recursionTool.calculateFibonacci(Integer.parseInt(value));
+			fibonacciResponse += recursionTool.calculateFibonacciIterative(Integer.parseInt(value));
 		}
 		mathTimer.stopTimer();
 		fibonacciResponse += "\n" + mathTimer.toString();

@@ -34,12 +34,27 @@ public class RecursionTool
 	
 	public int calculateFibonacciIterative(int currentNumber)
 	{
-		
+		int a = 0;
+        int b = 1;
+        // In N steps compute Fibonacci sequence iteratively.
+        for (int i = 0; i < currentNumber; i++)
+        {
+            int temp = a;
+            a = b;
+            b = temp + b;
+        }
+        return a;
 	}
 	
-	public double calcFactIter()
+	public double calcFactIter(int number)
 	{
-		
+		int factor = 1;
+        //Runs loop and multiplies factor each time runned     
+        for (int i=1; i<=number; i++) {
+            factor = factor*i;
+        }
+        
+        return factor;
 	}
 }
 
